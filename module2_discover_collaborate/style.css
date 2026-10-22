@@ -1,8 +1,4 @@
-body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f8; }
-h2 { color: #1f3a5f; }
-.filters { margin-bottom: 15px; }
-input, select, button { padding: 7px; margin-right: 6px; }
-.card { background: white; padding: 12px; margin: 8px 0; border-radius: 6px; border: 1px solid #ddd; }
-.badge { color: green; font-weight: bold; }
-button { background: #1f3a5f; color: white; border: none; cursor: pointer; border-radius: 4px; }
-#requests li { margin: 4px 0; }
+@import url('css/variables.css');
+@import url('css/base.css');
+@import url('css/components.css');
+@import url('css/layout.css');

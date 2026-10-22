@@ -1,30 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover verified creators, brands, and businesses, and send seamless collaboration requests on CollabConnect.">
   <title>CollabConnect - Discover & Collaborate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="brand-badge">CC</div>
+        <div class="header-title-block">
+          <h1>CollabConnect</h1>
+          <p>Module 2 &bull; Discover &amp; Collaborate</p>
+        </div>
+      </div>
+      <div class="connection-status" id="connectionStatus">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Checking connection...</span>
+      </div>
+    </div>
+  </header>
 
-  <h2>Discover & Collaborate</h2>
+  <main class="app-main">
+    <section class="hero-banner">
+      <h2>Discover &amp; Collaborate</h2>
+      <p>Connect with verified creators, leading brands, and industry-shaping businesses.</p>
+    </section>
 
-  <div class="filters">
-    <input id="search" placeholder="Search by name or niche" oninput="render()">
-    <select id="role" onchange="render()">
-      <option value="">All roles</option>
-      <option value="creator">Creator</option>
-      <option value="brand">Brand</option>
-      <option value="business">Business</option>
-    </select>
-    <label><input type="checkbox" id="verifiedOnly" onchange="render()"> Verified only</label>
-  </div>
+    <div class="workspace-grid">
+      <section class="content-column">
+        <div class="filters-wrapper">
+          <div class="search-field-container">
+            <span class="search-icon">&#128269;</span>
+            <input
+              type="text"
+              id="search"
+              class="search-input"
+              placeholder="Search by name or niche..."
+              autocomplete="off"
+            >
+          </div>
 
-  <div id="results"></div>
+          <select id="role" class="filter-select">
+            <option value="">All roles</option>
+            <option value="creator">Creator</option>
+            <option value="brand">Brand</option>
+            <option value="business">Business</option>
+          </select>
 
-  <h3>Collaboration Requests Sent</h3>
-  <ul id="requests"></ul>
+          <label class="filter-checkbox-label" for="verifiedOnly">
+            <input type="checkbox" id="verifiedOnly">
+            <span>Verified only</span>
+          </label>
 
-  <script src="script.js"></script>
+          <div class="filter-stats" id="filterStats">Loading profiles...</div>
+        </div>
+
+        <div id="results" class="results-grid"></div>
+      </section>
+
+      <aside class="sidebar-panel">
+        <div class="panel-header">
+          <h3>Collaboration Requests Sent</h3>
+          <span class="requests-count-badge" id="requestsCount">0</span>
+        </div>
+
+        <ul id="requests" class="requests-list"></ul>
+
+        <button type="button" class="btn-ghost-danger" id="clearRequestsBtn">
+          Clear All Requests
+        </button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>CollabConnect &bull; Originally authored by Palak Kothari</span>
+      <span>Discovery &amp; Verification Architecture</span>
+    </div>
+  </footer>
+
+  <div id="toastNotification" class="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/requests.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

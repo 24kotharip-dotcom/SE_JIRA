@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollabConnect - Profile & Credibility Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-logo">CC</div>
+      <div>
+        <h1 class="brand-title">CollabConnect</h1>
+        <p class="brand-subtitle">Module 1 &bull; Profile Creation & Credibility Verification</p>
+      </div>
+    </div>
+    <div class="system-status">
+      <span class="status-indicator"></span>
+      API Service Active
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card registration-card">
+      <div class="card-header">
+        <h2>Register Profile</h2>
+        <p>Create a verified creator, brand, or business identity</p>
+      </div>
+      <form id="registerForm" class="form-grid">
+        <div class="form-group">
+          <label for="name">Full Name / Entity Name</label>
+          <input type="text" id="name" required placeholder="e.g. Palak Kothari">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" required placeholder="e.g. palak@collabconnect.dev">
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" required>
+            <option value="creator">Creator</option>
+            <option value="brand">Brand</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="niche">Niche / Domain</label>
+          <input type="text" id="niche" placeholder="e.g. Full Stack & AI">
+        </div>
+
+        <div class="form-group">
+          <label for="followers">Audience / Followers Count</label>
+          <input type="number" id="followers" min="0" value="0">
+        </div>
+
+        <div class="form-group">
+          <label for="website">Portfolio / Official Website</label>
+          <input type="url" id="website" placeholder="https://palakkothari.dev">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="registerBtn">Create Profile</button>
+        </div>
+      </form>
+      <div id="formAlert" class="alert hidden"></div>
+    </section>
+
+    <section class="profiles-section">
+      <div class="section-toolbar">
+        <div>
+          <h2>Registered Profiles</h2>
+          <p>Real-time credibility verification & trust score evaluation</p>
+        </div>
+        <button id="refreshBtn" class="btn btn-secondary">Refresh Profiles</button>
+      </div>
+
+      <div id="profilesList" class="profiles-grid"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
