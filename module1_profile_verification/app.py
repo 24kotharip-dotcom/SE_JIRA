@@ -27,6 +27,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "healthy", "service": "CollabConnect API", "profiles_count": len(users)}), 200
+
+
 @app.route("/register", methods=["POST"])
 def register():
     payload = request.get_json(silent=True) or {}
